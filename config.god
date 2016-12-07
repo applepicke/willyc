@@ -1,4 +1,4 @@
-RAILS_ROOT = File.dirname(File.dirname(__FILE__))
+RAILS_ROOT = File.dirname(__FILE__)
 
 God.watch do |w|
   w.name = "willyc"
