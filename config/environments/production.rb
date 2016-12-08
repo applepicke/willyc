@@ -81,6 +81,14 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[willyc_exception]",
+    :sender_address => %{"Willyc.me" <willy@willyc.me>},
+    :exception_recipients => %w{wcurtiscollins@gmail.com}
+  }
+
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
