@@ -3,4 +3,12 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  get :games, to: 'games#index'
+  namespace :games do
+    get :tiny, to: 'tiny#index'
+
+    # webhooks
+    post :build_hook, to: 'webhooks#build_hook'
+  end
+
 end
