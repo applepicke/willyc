@@ -3,11 +3,9 @@ class Games::TinyController < ApplicationController
   def index
     builds = Build.where(game: 'tiny')
 
-    @latest = {
-      x32: builds.where(platform: 'tiny-x32').last,
-      x64: builds.where(platform: 'tiny-x64').last,
-      osx: builds.where(platform: 'tiny-osx').last
-    }
+    @x32_builds = builds.where(platform: 'tiny-x32').order('created_at DESC')
+    @x64_builds = builds.where(platform: 'tiny-x64').order('created_at DESC')
+    @osx_builds = builds.where(platform: 'tiny-osx').order('created_at DESC')
   end
 
 end

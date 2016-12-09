@@ -6,16 +6,34 @@
 
     .col-md-4
       %h4 Windows x32
-      - if @latest[:x32]
-        = link_to 'Download', aws_url(@latest[:x32].url)
+      - if !@x32_builds.empty?
+        = link_to 'Download', @x32_builds.first.url
 
     .col-md-4
       %h4 Windows x64
-      - if @latest[:x64]
-        = link_to 'Download', aws_url(@latest[:x64].url)
+      - if !@x64_builds.empty?
+        = link_to 'Download', @x64_builds.first.url
 
     .col-md-4
       %h4 OSX
-      - if @latest[:osx]
-        = link_to 'Download', aws_url(@latest[:osx].url)
+      - if !@osx_builds.empty?
+        = link_to 'Download', @osx_builds.first.url
+
+  .col-md-4.col-md-offset-4
+    %h2 Previous Builds
+
+    .col-md-4
+      %h4 Windows x32
+      - @x32_builds.each do |build|
+        %p= link_to build.created_at.strftime('%Y-%m-%d'), build.url
+
+    .col-md-4
+      %h4 Windows x64
+      - @x64_builds.each do |build|
+        %p= link_to build.created_at.strftime('%Y-%m-%d'), build.url
+
+    .col-md-4
+      %h4 OSX
+      - @osx_builds.each do |build|
+        %p= link_to build.created_at.strftime('%Y-%m-%d'), build.url
 
