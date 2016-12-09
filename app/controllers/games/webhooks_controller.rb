@@ -6,6 +6,9 @@ class Games::WebhooksController < ApplicationController
     project = params[:projectName]
     target_name = params[:buildTargetName]
 
+    Rails.logger.info "#{links} #{project} #{target_name}"
+    Rails.logger.info "#{params}"
+
     if links && project && target_name
       build_url = links[:api_self][:href]
 

@@ -27,7 +27,7 @@ end
 
 group :development do
   gem 'thin'
-  gem 'spring'
+  #gem 'spring'
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'capistrano', '~> 3.3.0'
@@ -36,7 +36,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  #gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :production do
