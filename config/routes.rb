@@ -11,4 +11,6 @@ Rails.application.routes.draw do
     post :build_hook, to: 'webhooks#build_hook'
   end
 
+  get :secret_error_page, to: 'home#error'
+
 end
