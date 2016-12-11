@@ -14,7 +14,7 @@ worker_processes 1
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-working_directory '/home/applepicke/apps/willyc-v2' # available in 0.94.0+
+working_directory '/home/applepicke/apps/willyc/current' # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
@@ -111,5 +111,5 @@ end
 
 # Explicitly set the Gemfile location so a restarting Unicorn can find new gems
 before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = File.join('/home/applepicke/apps/willyc-v2', 'Gemfile')
+  ENV['BUNDLE_GEMFILE'] = File.join('/home/applepicke/apps/willyc/current', 'Gemfile')
 end
