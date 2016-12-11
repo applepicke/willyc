@@ -60,7 +60,7 @@ end
 desc 'copy env file'
 task :copy_env do
   on roles(:web) do |_host|
-    run "ln -nfs /home/applepicke/configs/willyc/.env /home/applepicke/apps/willyc/current/.env"
+    execute "ln -nfs /home/applepicke/configs/willyc/.env /home/applepicke/apps/willyc/current/.env"
   end
 end
 
