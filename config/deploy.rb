@@ -57,6 +57,14 @@ task :reload_unicorn do
   end
 end
 
+desc 'copy env file'
+task :copy_env do
+  on roles(:web) do |_host|
+    run "ln -nfs /home/applepicke/configs/willyc/.env /home/applepicke/apps/willyc/current/.env"
+  end
+end
+
+after 'deploy:updating', :copy_env
 after :deploy, :reload_unicorn
 after :deploy, :restart_app
 
