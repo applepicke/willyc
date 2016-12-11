@@ -23,7 +23,7 @@ set :chruby_ruby, '2.3.3'
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_files, ".env"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -57,14 +57,14 @@ task :reload_unicorn do
   end
 end
 
-desc 'copy env file'
-task :copy_env do
-  on roles(:web) do |_host|
-    execute "ln -nfs /home/applepicke/configs/willyc/.env /home/applepicke/apps/willyc/current/.env"
-  end
-end
+# desc 'copy env file'
+# task :copy_env do
+#   on roles(:web) do |_host|
+#     execute "ln -nfs /home/applepicke/configs/willyc/.env /home/applepicke/apps/willyc/current/.env"
+#   end
+# end
 
-after 'deploy:updating', :copy_env
+# after 'deploy:updating', :copy_env
 after :deploy, :reload_unicorn
 after :deploy, :restart_app
 
