@@ -34,6 +34,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-chruby'
   gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   #gem 'spring-watcher-listen', '~> 2.0.0'

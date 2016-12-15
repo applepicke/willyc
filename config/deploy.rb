@@ -50,11 +50,7 @@ end
 
 desc "reload application code"
 task :reload_unicorn do
-  on roles(:web) do |_host|
-    execute <<-SH.strip
-      kill -s USR2 `cat /home/applepicke/pids/unicorn.pid`
-    SH
-  end
+  invoke 'unicorn:restart'
 end
 
 # desc 'copy env file'
