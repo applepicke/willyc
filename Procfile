@@ -1,1 +1,1 @@
-rails: bundle exec unicorn -c ./config/unicorn.rb --port 3333
+rails: bundle exec unicorn -c ./config/unicorn/production.rb --port 3333
