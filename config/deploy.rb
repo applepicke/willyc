@@ -50,7 +50,7 @@ end
 
 desc "reload application code"
 task :reload_unicorn do
-  invoke 'unicorn:restart'
+  invoke 'unicorn:reload'
 end
 
 # desc 'copy env file'
