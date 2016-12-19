@@ -1,6 +1,9 @@
 .container-fluid.text-center
   .row
-    .col-xs-12
-      .gmt
-        = image_tag 'sprites/characters/willy/willy-16x16.png', class: 'pixelated x4'
+    .col-md-8.col-md-offset-2.col-xs-12.lmt
 
+      = tag 'canvas', id: 'game-area', class: 'pixelated'
+
+:coffeescript
+  $ ->
+    willy.startGame()

@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require underscore
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require teletype
+//= require soundjs
+//= require easeljs
+//= require utils
 //= require_tree .

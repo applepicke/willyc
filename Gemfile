@@ -2,16 +2,15 @@ source 'https://rubygems.org'
 
 gem 'foreman'
 gem 'rails', '>= 5.0.0.1'
-
 gem 'sqlite3'
-
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
+gem 'coffee-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'underscore-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'exception_notification'
-
 
 # Extra Libraries
 gem 'bootstrap-sass'
