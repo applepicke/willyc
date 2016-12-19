@@ -1,9 +1,9 @@
 
 sheetData =
   images: [
-    'assets/images/sprites/characters/willy/upward/walking1-sheet.png',
-    'assets/images/sprites/characters/willy/downward/walking1-sheet.png',
-    'assets/images/sprites/characters/willy/right/walking1-sheet.png'
+    'assets/sprites/characters/willy/upward/walking1-sheet.png',
+    'assets/sprites/characters/willy/downward/walking1-sheet.png',
+    'assets/sprites/characters/willy/right/walking1-sheet.png'
   ]
   frames:
     width: 16
