@@ -1,9 +1,18 @@
 %nav.navbar.navbar-default
   .container-fluid
     .navbar-header
+      = link_to root_path, class: 'navbar-brand' do
+        = image_tag 'sprites/characters/willy/willy-16x16.png', class: 'pixelated x2'
       = link_to "Willy's Site", root_path, class: 'navbar-brand'
 
-    %ul.nav.navbar-nav.navbar-center
+      %button.navbar-toggle.collapsed{'data-toggle': 'collapse', 'data-target': '#nav-menu'}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
 
-      %li
-        =link_to 'Games', games_path
+    .collapse.navbar-collapse#nav-menu
+      %ul.nav.navbar-nav#nav-menu
+        %li
+          =link_to 'Games', games_path
+
