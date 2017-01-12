@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get :games, to: 'games#index'
   namespace :games do
     get :tiny, to: 'tiny#index'
+    post :tiny, to: 'tiny#index'
 
     # webhooks
     post :build_hook, to: 'webhooks#build_hook'
