@@ -24,3 +24,5 @@
 .env
 .gems
 public/assets
+
+npm-debug.log

@@ -1,24 +1,28 @@
-# README
+# willyc.me
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hi, I'm Willy. This is my personal website. I'm assuming you want to check out my website and see what it's like. Well, you're in luck! It should be up and running at `willyc.me`.
 
-Things you may want to cover:
+If for some crazy reason you want to run it locally (maybe you want to make it better and submit a PR? :D) here are some instructions for how to do it!
 
-* Ruby version
+## Prerequisites
 
-* System dependencies
+TODO: Write up detailed install instructions
 
-* Configuration
+- Ruby 2.3.3
+- Bundler
 
-* Database creation
+## Installation
 
-* Database initialization
+```
+bundle install
+npm install
+```
 
-* How to run the test suite
+## Running
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rails s
+```
 
-* Deployment instructions
+Point your browser to `localhost:3000`
 
-* ...
