@@ -26,6 +26,13 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Serve assets from webpack-dev-server
+  config.action_controller.asset_host = Proc.new { |source|
+    if source =~ /game\.js$/i
+    "http://localhost:8080/assets"
+    end
+  }
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

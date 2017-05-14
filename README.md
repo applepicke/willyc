@@ -16,6 +16,7 @@ TODO: Write up detailed install instructions
 ```
 bundle install
 npm install
+rails db:migrate
 ```
 
 ## Running

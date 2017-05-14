@@ -1,9 +1,4 @@
-.container-fluid.text-center
-  .row
-    .col-md-8.col-md-offset-2.col-xs-12.lmt
+.container
+  #game
 
-      = tag 'canvas', id: 'game-area', class: 'pixelated'
-
-:coffeescript
-  $ ->
-    willy.startGame()
+= javascript_include_tag 'game'
