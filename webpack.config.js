@@ -6,7 +6,7 @@ module.exports = {
   context: __dirname,
   // the main entry point for our application's frontend JS
   entry: {
-    client: 'webpack-dev-server/client?http://localhost:8080',
+    client: 'webpack-dev-server/client?http://localhost:8081',
     // bundle the client for webpack-dev-server
     // and connect to the provided endpoint
 
@@ -53,7 +53,7 @@ module.exports = {
     filename: '[name].js',
     sourceMapFilename: "[file].map",
     // if the webpack code-splitting feature is enabled, this is the path it'll use to download bundles
-    publicPath: 'http://localhost:8080/assets/javascripts',
+    publicPath: 'http://localhost:8081/assets/javascripts',
   },
 
   module: {
