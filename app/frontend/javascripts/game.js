@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Game from './Game.jsx'
+import css from './css/game.sass'
 
 // for hot reloading
 if (module.hot) {
@@ -11,5 +12,5 @@ if (module.hot) {
 
 ReactDOM.render(
   <Game />,
-  document.getElementById('game')
+  document.getElementById('game-area')
 )

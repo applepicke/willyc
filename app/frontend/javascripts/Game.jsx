@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 import { AppContainer  } from 'react-hot-loader'
 import {
@@ -11,19 +11,23 @@ import {
 
 export default class Game extends React.Component {
 
+  static contextTypes = {
+    scale: PropTypes.number,
+  }
+
   render() {
     return (
       <AppContainer>
         <Loop>
           <Stage>
             <World>
-              <Body args={[0, 0, 0, 0]} ref={willy => this.willy = willy} >
+              <Body args={{ x: 0, y: 0 }} ref={willy => this.willy = willy} >
                 <Sprite
                   onPlayStateChanged={this.handlePlayStateChanged}
                   src="sprites/characters/willy/sheet.png"
                   tileHeight={16}
                   tileWidth={16}
-                  scale={this.context.scale * 3}
+                  scale={3}
                   state={0}
                   steps={[7, 7, 7]}
                   />

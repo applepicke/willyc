@@ -36,6 +36,7 @@ module.exports = {
 
   devServer: {
     host: 'localhost',
+    port: 8081,
     historyApiFallback: true,
     // respond to 404s with index.html
     headers: { 'Access-Control-Allow-Origin': '*'  },
@@ -62,10 +63,11 @@ module.exports = {
         test: /.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react'],
-        }
-      }
+      },
+      {
+        test: /\.sass$/,
+        loader: ["style-loader", "css-loader", "sass-loader"]
+      },
     ]
   },
 

@@ -12,6 +12,4 @@ Rails.application.routes.draw do
     post :build_hook, to: 'webhooks#build_hook'
   end
 
-  get :secret_sarah, to: 'home#secret_sarah'
-
 end
