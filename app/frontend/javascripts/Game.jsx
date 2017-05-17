@@ -1,13 +1,15 @@
-import React, { PropTypes } from 'react'
-
+import React from 'react'
+import PropTypes from 'prop-types'
 import { AppContainer  } from 'react-hot-loader'
+
 import {
   Loop,
   Stage,
   World,
-  Body,
-  Sprite
+  KeyListener,
 } from 'react-game-kit'
+
+import Willy from './Willy.jsx'
 
 export default class Game extends React.Component {
 
@@ -15,23 +17,31 @@ export default class Game extends React.Component {
     scale: PropTypes.number,
   }
 
+  constructor(props) {
+    super(props)
+
+    this.keyListener = new KeyListener()
+  }
+
+  componentDidMount() {
+    let { LEFT, RIGHT, UP, DOWN } = this.keyListener
+
+    this.keyListener.subscribe([ LEFT, RIGHT, UP, DOWN ])
+  }
+
   render() {
     return (
       <AppContainer>
         <Loop>
           <Stage>
-            <World>
-              <Body args={{ x: 0, y: 0 }} ref={willy => this.willy = willy} >
-                <Sprite
-                  onPlayStateChanged={this.handlePlayStateChanged}
-                  src="sprites/characters/willy/sheet.png"
-                  tileHeight={16}
-                  tileWidth={16}
-                  scale={3}
-                  state={0}
-                  steps={[7, 7, 7]}
-                  />
-              </Body>
+            <World gravity={{
+              x: 0,
+              y: 0
+            }}>
+              <Willy
+                keys={this.keyListener}
+                movementSpeed={5}
+                />
             </World>
           </Stage>
         </Loop>
