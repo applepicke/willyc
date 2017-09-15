@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { AppContainer  } from 'react-hot-loader'
 
+import { UP, LEFT, DOWN, RIGHT, W, A, S, D } from './Keys'
+
 import {
   Loop,
   Stage,
@@ -9,7 +11,7 @@ import {
   KeyListener,
 } from 'react-game-kit'
 
-import Willy from './Willy.jsx'
+import Willy from './Willy.js'
 
 export default class Game extends React.Component {
 
@@ -24,9 +26,7 @@ export default class Game extends React.Component {
   }
 
   componentDidMount() {
-    let { LEFT, RIGHT, UP, DOWN } = this.keyListener
-
-    this.keyListener.subscribe([ LEFT, RIGHT, UP, DOWN ])
+    this.keyListener.subscribe([ LEFT, RIGHT, UP, DOWN, W, A, S, D ])
   }
 
   render() {
@@ -40,7 +40,7 @@ export default class Game extends React.Component {
             }}>
               <Willy
                 keys={this.keyListener}
-                movementSpeed={5}
+                movementSpeed={3}
                 />
             </World>
           </Stage>

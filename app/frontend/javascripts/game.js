@@ -2,7 +2,7 @@ import 'react-hot-loader/patch'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Game from './Game.jsx'
+import Game from './components/Game.js'
 import css from './css/game.sass'
 
 // for hot reloading

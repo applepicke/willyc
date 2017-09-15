@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Body, Sprite } from 'react-game-kit'
+import { Body } from 'react-game-kit'
+import Sprite from './Sprite'
+
 import Matter from 'matter-js'
+
+import { UP, DOWN, LEFT, RIGHT, W, A, S, D } from './Keys'
 
 export default class Willy extends React.Component {
 
@@ -17,35 +21,65 @@ export default class Willy extends React.Component {
 
   checkKeys = () => {
     const { keys, movementSpeed } = this.props
+    const { scale } = this.context
     const { body } = this.body
+
+    const speed = movementSpeed * scale
+    const diagSpeed = speed * 0.7
 
     let x = 0
     let y = 0
+    let flipX = false
     let anim = 3
 
-    if (keys.isDown(keys.UP)) {
-      y = -movementSpeed
+    const isUp = keys.isDown(UP) || keys.isDown(W)
+    const isDown = keys.isDown(DOWN) || keys.isDown(S)
+    const isLeft = keys.isDown(LEFT) || keys.isDown(A)
+    const isRight = keys.isDown(RIGHT) || keys.isDown(D)
+
+    if (isUp && isLeft) {
+      x = -diagSpeed
+      y = -diagSpeed
+      flipX = true
       anim = 4
     }
-
-    if (keys.isDown(keys.DOWN)) {
-      y = movementSpeed
+    else if (isUp && isRight) {
+      x = diagSpeed
+      y = -diagSpeed
+      anim = 4
+    }
+    else if (isDown && isLeft) {
+      x = -diagSpeed
+      y = diagSpeed
+      flipX = true
       anim = 0
     }
-
-    if (keys.isDown(keys.LEFT)) {
-      x = -movementSpeed
+    else if (isDown && isRight) {
+      x = diagSpeed
+      y = diagSpeed
+      anim = 0
+    }
+    else if (isUp) {
+      y = -speed
+      anim = 4
+    }
+    else if (isDown) {
+      y = speed
+      anim = 0
+    }
+    else if (isLeft) {
+      x = -speed
       anim = 1
     }
-
-    if (keys.isDown(keys.RIGHT)) {
-      x = movementSpeed
+    else if (isRight) {
+      x = speed
       anim = 2
     }
 
     this.move(body, x, y)
     this.setState({
-      anim: anim
+      anim,
+      flipX
     })
   }
 
@@ -64,7 +98,8 @@ export default class Willy extends React.Component {
 
     this.state = {
       position: { x: 0, y: 0 },
-      anim: 3
+      anim: 3,
+      flipX: false
     }
   }
 
@@ -78,12 +113,14 @@ export default class Willy extends React.Component {
 
   getWrapperStyles() {
     const { x, y } = this.state.position
+    const { flipX } = this.state
     const { scale } = this.context
+
+    const flipXcss = flipX ? 'scaleX(-1)' : ''
 
     return {
       position: 'absolute',
-      transform: `translate(${x * scale}px, ${y * scale}px)`,
-      transformOrigin: 'left top',
+      transform: `translate(${x * scale}px, ${y * scale}px) ${flipXcss}`,
     }
   }
 
@@ -101,7 +138,7 @@ export default class Willy extends React.Component {
             src="sprites/characters/willy/sheet.png"
             tileHeight={16}
             tileWidth={16}
-            scale={5 * scale}
+            scale={2 * scale}
             state={this.state.anim}
             steps={[7, 7, 7, 0, 7]}
             />
